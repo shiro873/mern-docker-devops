@@ -1,15 +1,7 @@
-FROM node:20-alpine
-
+FROM node:latest
 WORKDIR /app
-
-COPY package*.json  ./
-
+COPY package.json /app
 RUN npm install
-
-COPY . .
-
-RUN npm run build
-
+COPY . /app
+CMD node index.js
 EXPOSE 3000
-
-CMD ["npm", "start"]
