@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Todo App</h1>
+  <ul id="todo-list">
+    <% todos.forEach(function(todo) { %>
+      <li>
+        <%= todo.title %>
+        (<%= todo.completed? 'Completed' : 'Not completed' %>)
+        <button data-id="<%= todo.id %>">Delete</button>
+      </li>
+    <% }); %>
+  </ul>
+  <form id="new-todo-form">
+    <input type="text" id="new-todo" placeholder="New todo">
+    <button type="submit">Add</button>
+  </form>
+
+  <script src="/javascripts/todo.js"></script>
+</body>
+</html>
