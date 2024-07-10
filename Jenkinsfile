@@ -17,14 +17,14 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                sh 'docker tag node-todo-app:latest ridwanshuvro/node-todo-app:latest'
-                sh 'docker push ridwanshuvro/ontik/node-todo-app:latest'
+                sh 'docker tag test-app:latest ridwanshuvro/test-app:latest'
+                sh 'docker push ridwanshuvro/ontik/test-app:latest'
             }
         }
         stage('Deploy to Docker') {
             steps {
-                sh 'docker rm -f node-todo-app || true'
-                sh 'docker run -d -p 3000:3000 --name node-todo-app ridwanshuvro/node-todo-app:latest'
+                sh 'docker rm -f test-app || true'
+                sh 'docker run -d -p 3000:3000 --name test-app ridwanshuvro/test-app:latest'
             }
         }
     }
