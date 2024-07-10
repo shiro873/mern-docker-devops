@@ -16,8 +16,10 @@ pipeline {
         }
         stage('Push to Docker Hub') {
             steps {
-                sh 'docker tag test-app:latest ridwanshuvro/ontik/test-app:latest'
-                sh 'docker push ridwanshuvro/ontik/test-app:latest'
+                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-creds') {
+                    sh 'docker tag test-app:latest ridwanshuvro/ontik/test-app:latest'
+                    sh 'docker push ridwanshuvro/ontik/test-app:latest'
+                }
             }
         }
         stage('Deploy to Docker') {
