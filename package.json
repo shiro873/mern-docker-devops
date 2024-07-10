@@ -16,5 +16,8 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "webpack": "^5.92.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
   }
 }
