@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Dockerize') {
             steps {
-                sh 'docker build -t node-todo-app .'
+                sh 'docker build -t test-app .'
             }
         }
         stage('Push to Docker Hub') {
